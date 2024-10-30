@@ -1,0 +1,21 @@
+html, body, app-root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+    --midnight-blue: #191170;
+}
+
+.custom-gradient {
+  background: linear-gradient(180deg, rgb(36, 36, 36), #252525);
+}
+
+.custom-grey {
+  background: grey;
+}
+
+.text-altivo {
+  font-family: "altivo", sans-serif;
+}
