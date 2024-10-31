@@ -20,7 +20,9 @@
             "outputPath": "dist/projeto-integrador",
             "index": "src/index.html",
             "browser": "src/main.ts",
-            "polyfills": ["zone.js"],
+            "polyfills": [
+              "zone.js"
+            ],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
@@ -37,12 +39,7 @@
             "scripts": [
               "node_modules/@popperjs/core/dist/umd/popper.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.min.js"
-            ],
-            "server": "src/main.server.ts",
-            "prerender": true,
-            "ssr": {
-              "entry": "server.ts"
-            }
+            ]
           },
           "configurations": {
             "production": {
@@ -70,15 +67,43 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "buildTarget": "ProjetoIntegrador:build"
+          },
           "configurations": {
             "production": {
               "buildTarget": "ProjetoIntegrador:build:production"
+            }
+          }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/projeto-integrador/server",
+            "main": "src/main.server.ts",
+            "tsConfig": "tsconfig.server.json"
+          },
+          "configurations": {
+            "production": {},
+            "development": {}
+          }
+        },
+        "serve-ssr": {
+          "builder": "@angular/ssr:serve",
+          "options": {
+            "browserTarget": "ProjetoIntegrador:build",
+            "serverTarget": "ProjetoIntegrador:server"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ProjetoIntegrador:build:production",
+              "serverTarget": "ProjetoIntegrador:server:production"
             },
             "development": {
-              "buildTarget": "ProjetoIntegrador:build:development"
+              "browserTarget": "ProjetoIntegrador:build:development",
+              "serverTarget": "ProjetoIntegrador:server:development"
             }
-          },
-          "defaultConfiguration": "development"
+          }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n"
@@ -86,7 +111,10 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "polyfills": ["zone.js", "zone.js/testing"],
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
             "assets": [
@@ -95,7 +123,9 @@
                 "input": "public"
               }
             ],
-            "styles": ["src/styles.scss"],
+            "styles": [
+              "src/styles.scss"
+            ],
             "scripts": []
           }
         }
