@@ -1,4 +1,4 @@
-<div class="container-fluid m-0 p-0 text-white custom-gradient" style="height: 100vh;">
+<div class="container-fluid m-0 p-0 text-white custom-scrollbar" style="height: 100vh;">
     <div class="col-md-12 py-4">
         <div class="col-md-12 d-flex justify-content-center align-items-center">
             <img src="assets/images/user.png" class="h-25 w-25" alt="teste">
@@ -17,7 +17,7 @@
     <hr>
 
     <div class="col-md-12">
-        <div class="col-md-12">
+        <!-- <div class="col-md-12">
             <button
                 class="btn bg-transparent border-0 col-md-8 d-md-flex h-100 align-items-md-center justify-content-md-evenly"><i
                     class="fa-solid fa-gear fa-lg" style="color: #ffffff;"></i>
@@ -33,6 +33,14 @@
                 <p class="text-altivo">
                 <p class="text-altivo fs-6 fw-medium text-white m-0 mt-1">Usuários</p>
             </button>
+        </div> -->
+
+        <div class="col-md-12">
+            <nb-layout>
+                <nb-sidebar state="expanded" class="menu-sidebar bg-dark">
+                    <nb-menu [items]="menuItems"></nb-menu>
+                </nb-sidebar>
+            </nb-layout>
         </div>
     </div>
 </div>
